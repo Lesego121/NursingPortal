@@ -1,0 +1,30 @@
+.logo{
+    position: relative;
+}
+.logo img{
+    height: 60px;
+    padding: 10px;
+}
+nav{
+    background: #84b8b8;
+}
+.modal-dialog{
+    display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center
+}
+.modal-content{
+    width: 160% !important;
+}
+
+.modal-header{
+    background: #6c9494;  
+    color: rgb(255, 255, 255);
+}
+#AmountOwed{
+    color: rgb(255, 0, 55);
+}
+.img-account-profile{
+    border-radius: 50% !important;
+}

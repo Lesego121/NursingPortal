@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Nursing Smart Portal / Login Form</title>
+		<link rel="stylesheet" href="./style.css" />
+		<link rel="stylesheet" href="./Up.css" />
+		<link rel="shortcut icon" href="NursingSmartPortal-logos_black2.png">
+	</head>
+	<body>
+		<div id="overlay">
+			<div class="spinner"></div>
+		</div>
+		<div class="main aniD">
+			<input type="checkbox" id="chk" aria-hidden="true" />
+
+			<div class="signup" id="signup">
+				<div>
+					<label for="chk" aria-hidden="true"> Sign up</label>
+					<div class="mylab">
+						<input
+							id="ipt-file"
+							type="file"
+							accept="image/png,image/jpeg,image/bmp,image/gif"
+						/>
+						<i> !! Upload ID for quick registration</i>
+					</div>
+					<p id="p-loading" style="font-size: 1.5em">
+						Loading Library...
+					</p>
+					<p id="p-reading" style="font-size: 1.5em; display: none">
+						Reading Barcodes...
+					</p>
+					<div
+						id="div-cvs-container"
+						style="
+							width: 98%;
+							height: 40vh;
+
+							margin-top: 20px;
+
+							display: flex;
+							justify-content: center;
+							border: 2px dotted gray;
+							border-radius: 5px;
+						"
+					></div>
+					<div class="mylab">
+						<input
+							type="text"
+							name="txt"
+							id="Name"
+							placeholder="Name"
+						/>
+						<input
+							type="text"
+							name="txt"
+							id="Surname"
+							placeholder="Surname"
+						/>
+					</div>
+					<div class="mylab">
+						<select name="" id="gender">
+							<option value="">Select</option>
+							<option value="M">Male</option>
+							<option value="F">Female</option>
+						</select>
+						<select name="" id="citizen">
+							<option value="">Select</option>
+							<option value="RSA">RSA</option>
+						</select>
+					</div>
+					<div class="mylab">
+						<input
+							type="text"
+							name="txt"
+							id="ID"
+							placeholder="ID Number"
+						/>
+						<input
+							type="text"
+							name="txt"
+							id="birth"
+							placeholder="Date of Birth"
+						/>
+					</div>
+					<div class="mylab">
+						<input
+							type="email"
+							name="email"
+							id="email2"
+							placeholder="Email"
+						/>
+						<input
+							type="text"
+							name="txt"
+							id="CellNumber"
+							placeholder="Cell Number"
+						/>
+					</div>
+					<div class="mylab">
+						<input
+							type="password"
+							name="pswd"
+							id="passwordR"
+							placeholder="Password"
+						/>
+						<input
+							type="password"
+							name="pswd"
+							id="confirmP"
+							placeholder="Confirm Password"
+						/>
+					</div>
+
+					<button onclick="createAccount()">Sign up</button>
+				</div>
+			</div>
+
+			<div class="login">
+				<div>
+					<label for="chk" aria-hidden="true"
+						><img src="NursingSmartPortal-logos_black2.png" width="160" height="50" alt="" /> Login</label
+					>
+					<input
+						type="email"
+						id="username"
+						name="email"
+						placeholder="Email"
+					/>
+					<input
+						type="password"
+						id="password"
+						name="pswd"
+						placeholder="Password"
+					/>
+					<button onclick="login()">Login</button> <br>
+					<div class="text-center forgoy" >
+
+					
+					<a href="resetpassword.html"> Forgot password?</a>
+				</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+		<script>
+			const firebaseConfig = {
+				apiKey: "AIzaSyAO9Cq_CvH5TMEYRZUH4lPCDTucCiassYs",
+				authDomain: "system-h-50246.firebaseapp.com",
+				projectId: "system-h-50246",
+				storageBucket: "system-h-50246.appspot.com",
+				messagingSenderId: "784179200879",
+				appId: "1:784179200879:web:cdb841dc6fe0769ac81e9a",
+				measurementId: "G-KTM0NLC800",
+			};
+			firebase.initializeApp(firebaseConfig);
+			const auth = firebase.auth();
+			const db = firebase.firestore();
+			db.settings({ timestampsInSnapshots: true });
+			firebase.analytics();
+		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			setTimeout(function () {
+				$(".loader_bg").fadeToggle();
+			}, 1500);
+		</script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script
+			src="https://kit.fontawesome.com/8f7c71be78.js"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+		<script src="javascript/spinner.js"></script>
+		<!-- partial -->
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.0.0/dist/dbr.js"></script>
+		<script src="dist.js"></script>
+		<script
+			src="https://kit.fontawesome.com/8f7c71be78.js"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

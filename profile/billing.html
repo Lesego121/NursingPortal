@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+		<!--  All snippets are MIT license http://bootdey.com/license -->
+		<title>Profile | Nursing Smart Portal</title>
+		<link rel="shortcut icon" href="../img/NursingSmartPortal-logos_black2.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="profile.css" />
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+	</head>
+	<body>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+			integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA="
+			crossorigin="anonymous"
+		/>
+
+		<div class="container-xl px-4 mt-4">
+			<!-- Account page navigation-->
+			<nav class="nav nav-borders">
+				<div class="logo"><img src="../img/NursingSmartPortal-logos_black2.png" alt="" /></div>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+				<a class="nav-link ms-0" href="profile.html">Profile</a>
+				<a class="nav-link active" href="billing.html">Billing</a>
+				<a class="nav-link" href="security.html">Security</a>
+				<a class="nav-link" href="notification.html">Notifications</a>
+				<a href="#" class="nav-link" onclick="logout()">Logout</a>
+			</nav>
+			<hr class="mt-0 mb-4" />
+			<div class="row">
+				<div class="col-lg-4 mb-4">
+					<!-- Billing card 1-->
+					<div
+						class="card h-100 border-start-lg border-start-primary"
+					>
+						<div class="card-body">
+							<div class="small text-muted">
+								Current yearly bill
+							</div>
+							<div class="h3">R460.00</div>
+							<a class="text-arrow-icon small" href="#!">
+								Consult support
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="feather feather-arrow-right"
+								>
+									<line x1="5" y1="12" x2="19" y2="12"></line>
+									<polyline
+										points="12 5 19 12 12 19"
+									></polyline>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 mb-4">
+					<!-- Billing card 2-->
+					<div
+						class="card h-100 border-start-lg border-start-secondary"
+					>
+						<div class="card-body">
+							<div class="small text-muted">Next payment due</div>
+							<div class="h3" id="expDate">no payments</div>
+							<a
+								class="text-arrow-icon small text-secondary"
+								href="#!"
+							>
+								Consult support
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="feather feather-arrow-right"
+								>
+									<line x1="5" y1="12" x2="19" y2="12"></line>
+									<polyline
+										points="12 5 19 12 12 19"
+									></polyline>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 mb-4">
+					<!-- Billing card 3-->
+					<div
+						class="card h-100 border-start-lg border-start-success"
+					>
+						<div class="card-body">
+							<div class="small text-muted">Current plan</div>
+							<div class="h3 d-flex align-items-center">
+								Qualified Nurse
+							</div>
+							<a
+								class="text-arrow-icon small text-success"
+								href="#!"
+							>
+								Upgrade plan
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="feather feather-arrow-right"
+								>
+									<line x1="5" y1="12" x2="19" y2="12"></line>
+									<polyline
+										points="12 5 19 12 12 19"
+									></polyline>
+								</svg>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Payment methods card-->
+			<div class="card card-header-actions mb-4">
+				<div class="card-header">
+					Payment Methods
+					<button
+						class="btn btn-sm btn-primary"
+						type="button"
+						data-bs-toggle="modal"
+						data-bs-target="#exampleModal"
+					>
+						Add Payment Method
+					</button>
+				</div>
+				<div class="card-body px-0" id="listofcards">
+					<!-- Payment method 1-->
+
+					<!-- Payment method 2-->
+
+					<!-- Payment method 3-->
+				</div>
+			</div>
+			<!-- Billing history card-->
+			<div class="card mb-4">
+				<div class="card-header">Billing History</div>
+				<div class="card-body p-0">
+					<!-- Billing history table-->
+					<div class="table-responsive table-billing-history">
+						<table class="table mb-0">
+							<thead>
+								<tr>
+									<th class="border-gray-200" scope="col">
+										Transaction ID
+									</th>
+									<th class="border-gray-200" scope="col">
+										Date
+									</th>
+									<th class="border-gray-200" scope="col">
+										Amount
+									</th>
+									<th class="border-gray-200" scope="col">
+										Status
+									</th>
+								</tr>
+							</thead>
+							<tbody id="salLi">
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<style type="text/css">
+			body {
+				margin-top: 20px;
+				background-color: #f2f6fc;
+				color: #69707a;
+			}
+			.img-account-profile {
+				height: 10rem;
+			}
+			.rounded-circle {
+				border-radius: 50% !important;
+			}
+			.card {
+				box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+			}
+			.card .card-header {
+				font-weight: 500;
+			}
+			.card-header:first-child {
+				border-radius: 0.35rem 0.35rem 0 0;
+			}
+			.card-header {
+				padding: 1rem 1.35rem;
+				margin-bottom: 0;
+				background-color: rgba(33, 40, 50, 0.03);
+				border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+			}
+			.form-control,
+			.dataTable-input {
+				display: block;
+				width: 100%;
+				padding: 0.875rem 1.125rem;
+				font-size: 0.875rem;
+				font-weight: 400;
+				line-height: 1;
+				color: #69707a;
+				background-color: #fff;
+				background-clip: padding-box;
+				border: 1px solid #c5ccd6;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				border-radius: 0.35rem;
+				transition: border-color 0.15s ease-in-out,
+					box-shadow 0.15s ease-in-out;
+			}
+
+			.nav-borders .nav-link.active {
+				color: #0061f2;
+				border-bottom-color: #0061f2;
+			}
+			.nav-borders .nav-link {
+				color: #69707a;
+				border-bottom-width: 0.125rem;
+				border-bottom-style: solid;
+				border-bottom-color: transparent;
+				padding-top: 0.5rem;
+				padding-bottom: 0.5rem;
+				padding-left: 0;
+				padding-right: 0;
+				margin-left: 1rem;
+				margin-right: 1rem;
+			}
+			.fa-2x {
+				font-size: 2em;
+			}
+
+			.table-billing-history th,
+			.table-billing-history td {
+				padding-top: 0.75rem;
+				padding-bottom: 0.75rem;
+				padding-left: 1.375rem;
+				padding-right: 1.375rem;
+			}
+			.table > :not(caption) > * > *,
+			.dataTable-table > :not(caption) > * > * {
+				padding: 0.75rem 0.75rem;
+				background-color: var(--bs-table-bg);
+				border-bottom-width: 1px;
+				box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+			}
+
+			.border-start-primary {
+				border-left-color: #0061f2 !important;
+			}
+			.border-start-secondary {
+				border-left-color: #6900c7 !important;
+			}
+			.border-start-success {
+				border-left-color: #00ac69 !important;
+			}
+			.border-start-lg {
+				border-left-width: 0.25rem !important;
+			}
+			.h-100 {
+				height: 100% !important;
+			}
+			.form-control {
+				border-bottom: 2px solid #eee !important;
+				border: none;
+				font-weight: 600;
+			}
+
+			.form-control:focus {
+				color: #495057;
+				background-color: #fff;
+				border-color: #8bbafe;
+				outline: 0;
+				box-shadow: none;
+				border-radius: 0px;
+				border-bottom: 2px solid blue !important;
+			}
+
+			.inputbox {
+				position: relative;
+				margin-bottom: 20px;
+				width: 100%;
+			}
+
+			.inputbox span {
+				position: absolute;
+				top: 7px;
+				left: 11px;
+				transition: 0.5s;
+			}
+
+			.inputbox i {
+				position: absolute;
+				top: 13px;
+				right: 8px;
+				transition: 0.5s;
+				color: #3f51b5;
+			}
+
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+
+			.inputbox input:focus ~ span {
+				transform: translateX(-0px) translateY(-15px);
+				font-size: 12px;
+			}
+
+			.inputbox input:valid ~ span {
+				transform: translateX(-0px) translateY(-15px);
+				font-size: 12px;
+			}
+
+			.card-blue {
+				background-color: #492bc4;
+			}
+
+			.hightlight {
+				background-color: #5737d9;
+				padding: 10px;
+				border-radius: 10px;
+				margin-top: 15px;
+				font-size: 14px;
+			}
+			.fa-cc-visa {
+				background-color: #fdcc49;
+			}
+			.yellow {
+				color: #fdcc49;
+			}
+		</style>
+		<div
+			class="modal fade"
+			id="exampleModal"
+			tabindex="-1"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div
+				class="modal-dialog"
+				style="
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+				"
+			>
+				<div class="modal-content" style="width: 160% !important">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">
+							<h2>
+								<i
+									class="fab fa-cc-visa fa-2x cc-color-visa"
+								></i>
+								Add your Bank Card
+							</h2>
+						</h5>
+						<button
+							type="button"
+							class="btn-close"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+					</div>
+					<div class="modal-body">
+						<div class="mb-4">
+							<span
+								>Please fill in all input before clicking
+								add.</span
+							>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="card p-3">
+									<h6 class="text-uppercase">
+										Payment details
+									</h6>
+									<div class="inputbox mt-3">
+										<input
+											type="text"
+											name="name"
+											class="form-control"
+											required="required"
+											id="name-card"
+										/>
+										<span>Name on card</span>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="inputbox mt-3 mr-2">
+												<input
+													type="text"
+													name="name"
+													class="form-control"
+													required="required"
+													id="holder-card"
+												/>
+
+												<span>Account Holder</span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="inputbox mt-3 mr-2">
+												<select
+													name=""
+													class="form-control"
+													id="type-card"
+												>
+													<option value="">
+														Type of Account
+													</option>
+													<option value="Cheque">
+														Cheque
+													</option>
+													<option value="Savings">
+														Savings
+													</option>
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="inputbox mt-3 mr-2">
+												<input
+													type="text"
+													name="name"
+													class="form-control"
+													required="required"
+													id="number-card"
+													onkeypress="return formats(this,event)"
+													onkeyup="return numberValidation(event)"
+												/>
+												<i
+													class="fa fa-credit-card"
+												></i>
+												<span>Card Number</span>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="d-flex flex-row">
+												<div class="inputbox mt-3 mr-2">
+													<input
+														type="text"
+														name="name"
+														class="form-control"
+														required="required"
+														id="date-expirey"
+														maxlength="5"
+														onkeyup="formatString(event);"
+													/>
+													<span>Expiry</span>
+												</div>
+												<div class="inputbox mt-3 mr-2">
+													<input
+														type="text"
+														name="name"
+														class="form-control"
+														required="required"
+														id="the-cvv"
+														maxlength="3"
+													/>
+													<span>CVV</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="mt-4 mb-4">
+										<h6 class="text-uppercase">
+											Billing Address
+										</h6>
+										<div class="row mt-3">
+											<div class="col-md-6">
+												<div class="inputbox mt-3 mr-2">
+													<input
+														type="text"
+														name="name"
+														class="form-control"
+														required="required"
+														id="billingAddress"
+													/>
+													<span>Street Address</span>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="inputbox mt-3 mr-2">
+													<input
+														type="text"
+														name="name"
+														class="form-control"
+														required="required"
+														id="City"
+													/>
+													<span>City</span>
+												</div>
+											</div>
+										</div>
+										<div class="row mt-2">
+											<div class="col-md-6">
+												<div class="inputbox mt-3 mr-2">
+													<input
+														type="text"
+														name="name"
+														class="form-control"
+														required="required"
+														id="province"
+													/>
+													<span>State/Province</span>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="inputbox mt-3 mr-2">
+													<input
+														type="text"
+														name="name"
+														class="form-control"
+														required="required"
+														id="zipCode"
+													/>
+													<span>Zip code</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-bs-dismiss="modal"
+						>
+							Close
+						</button>
+						<button
+							type="button"
+							class="btn btn-success"
+							onclick="addBankCard()"
+						>
+							Save Changes
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+		<script>
+			const firebaseConfig = {
+				apiKey: "AIzaSyAO9Cq_CvH5TMEYRZUH4lPCDTucCiassYs",
+				authDomain: "system-h-50246.firebaseapp.com",
+				projectId: "system-h-50246",
+				storageBucket: "system-h-50246.appspot.com",
+				messagingSenderId: "784179200879",
+				appId: "1:784179200879:web:cdb841dc6fe0769ac81e9a",
+				measurementId: "G-KTM0NLC800",
+			};
+			firebase.initializeApp(firebaseConfig);
+			const auth = firebase.auth();
+			const db = firebase.firestore();
+			db.settings({ timestampsInSnapshots: true });
+			firebase.analytics();
+		</script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="billing.js"></script>
+		<script type="text/javascript"></script>
+	</body>
+</html>
