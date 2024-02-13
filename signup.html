@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Signup Admin Nursing Smart Portal</title>
+		<link rel="stylesheet" href="css/login.css" />
+		<link rel="stylesheet" href="css/Up.css" />
+	</head>
+	<body>
+		<div id="overlay">
+			<div class="spinner"></div>
+		</div>
+		<div class="wrapper fadeInDown">
+			<div id="formContent">
+				<!-- Tabs Titles -->
+
+				<!-- Icon -->
+				<div class="fadeIn first">
+					<img src="img/NursingSmartPortal-logos_black2.png" id="icon" alt="User Icon" />
+				</div>
+
+				<!-- Login Form -->
+				<form>
+					<div class="row fadeIn first">
+						<h1>Admin</h1>
+					</div>
+					<input
+						type="text"
+						id="Name"
+						class="fadeIn second"
+						name="login"
+						placeholder="Name & Surname"
+					/>
+
+					<input
+						type="text"
+						id="email"
+						class="fadeIn second"
+						name="login"
+						placeholder="Email"
+					/>
+					<input
+						type="text"
+						id="pin"
+						class="fadeIn second"
+						name="login"
+						placeholder="Pin"
+					/>
+					<input
+						type="password"
+						id="password"
+						class="fadeIn third"
+						name="login"
+						placeholder="Password"
+					/>
+					<input
+						type="password"
+						id="confirmP"
+						class="fadeIn third"
+						name="login"
+						placeholder="Confirm Password"
+					/>
+					<input
+						type="button"
+						class="fadeIn fourth"
+						value="Sign Up"
+						onclick="createAccount()"
+					/>
+				</form>
+				<h2 class="inactive underlineHover">
+					<a href="login.html">Sign In</a>
+				</h2>
+				<h2 class="active"><a href="signup.html">Sign Up</a></h2>
+				<!-- Remind Passowrd -->
+			</div>
+		</div>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-storage.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></script>
+		<script>
+			const firebaseConfig = {
+				apiKey: "AIzaSyAO9Cq_CvH5TMEYRZUH4lPCDTucCiassYs",
+				authDomain: "system-h-50246.firebaseapp.com",
+				projectId: "system-h-50246",
+				storageBucket: "system-h-50246.appspot.com",
+				messagingSenderId: "784179200879",
+				appId: "1:784179200879:web:cdb841dc6fe0769ac81e9a",
+				measurementId: "G-KTM0NLC800",
+			};
+			firebase.initializeApp(firebaseConfig);
+			const auth = firebase.auth();
+			const db = firebase.firestore();
+			db.settings({ timestampsInSnapshots: true });
+			firebase.analytics();
+		</script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="js/signup.js"></script>
+	</body>
+</html>
